@@ -24,12 +24,12 @@
 
 
 
-<bean class="com.Address" id="add2">
+<bean class="com.Address" id="add">
 	<property name="city" value="Bangalore"></property>
 	<property name="state" value="Kar"></property>
 </bean>
 
-<bean class="com.Address" id="add">
+<bean class="com.Address" id="address2">
 	<property name="city" value="Mumbai"></property>
 	<property name="state" value="Mh"></property>
 </bean>

@@ -37,8 +37,8 @@ public class DemoTest {
 //	Employee e8 = (Employee)ref.getBean("emp4");
 //	System.out.println(e8);   // it c
 	
-	//Address add1 = (Address)ref.getBean("address");
-	//System.out.println(add1);
+	Address add1 = (Address)ref.getBean("address");
+	System.out.println(add1);
 	
 	Employee emp1 = (Employee)ref.getBean("employee");
 	System.out.println(emp1);
