@@ -15,5 +15,4 @@
 <constructor-arg value="24000"></constructor-arg>
 </bean>
 
-
 </beans>
