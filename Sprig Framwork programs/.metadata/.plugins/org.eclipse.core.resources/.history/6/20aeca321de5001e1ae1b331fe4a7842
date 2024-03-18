@@ -21,21 +21,4 @@
 	<property name="name" value="Lex"></property>
 </bean>
 
-
-
-
-<bean class="com.Address" id="address">
-	<property name="city" value="Bangalore"></property>
-	<property name="state" value="Kar"></property>
-</bean>
-
-<bean class="com.Employee" id="employee">
-	<property name="id" value="102"></property>
-	<property name="name" value="John"></property>
-	<property name="salary" value="45000"></property>
-	<property name="add" ref="address"></property>
-</bean>
-
 </beans>
-
-

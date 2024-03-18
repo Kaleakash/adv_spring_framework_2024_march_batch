@@ -17,14 +17,6 @@ private Address add;
 		this.salary = salary;
 	}
 	
-	public Address getAdd() {
-		return add;
-	}
-
-	public void setAdd(Address add) {
-		this.add = add;
-	}
-
 	public Employee(int id, String name, float salary, Address add) {
 		super();
 		this.id = id;
@@ -38,9 +30,9 @@ private Address add;
 	}
 	@Override
 	public String toString() {
-		return "Employee [id=" + id + ", name=" + name + ", salary=" + salary + ", add=" + add + "]";
+		return "Employee [id=" + id + ", name=" + name + ", salary=" + salary + "]";
 	}
-	
+
 	public int getId() {
 		return id;
 	}

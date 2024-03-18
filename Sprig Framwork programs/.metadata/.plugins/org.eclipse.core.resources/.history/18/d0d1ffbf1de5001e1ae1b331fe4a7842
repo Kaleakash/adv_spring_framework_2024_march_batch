@@ -17,14 +17,6 @@ private Address add;
 		this.salary = salary;
 	}
 	
-	public Address getAdd() {
-		return add;
-	}
-
-	public void setAdd(Address add) {
-		this.add = add;
-	}
-
 	public Employee(int id, String name, float salary, Address add) {
 		super();
 		this.id = id;

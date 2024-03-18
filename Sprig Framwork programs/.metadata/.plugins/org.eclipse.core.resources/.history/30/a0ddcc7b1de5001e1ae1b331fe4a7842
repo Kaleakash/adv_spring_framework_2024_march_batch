@@ -25,23 +25,17 @@ public class DemoTest {
 //	Employee e4 = (Employee)ref.getBean("emp2");  // pull the object 
 //	e4.display();
 	
-//	Employee e5 = (Employee)ref.getBean("emp1");
-//	System.out.println(e5);   // it call toString methods 
-//	
-//	Employee e6 = (Employee)ref.getBean("emp2");
-//	System.out.println(e6);   // it call toString methods 
-//	
-//	Employee e7 = (Employee)ref.getBean("emp3");
-//	System.out.println(e7);   // it call toString methods 
-//	
-//	Employee e8 = (Employee)ref.getBean("emp4");
-//	System.out.println(e8);   // it c
+	Employee e5 = (Employee)ref.getBean("emp1");
+	System.out.println(e5);   // it call toString methods 
 	
-	Address add1 = (Address)ref.getBean("address");
-	System.out.println(add1);
+	Employee e6 = (Employee)ref.getBean("emp2");
+	System.out.println(e6);   // it call toString methods 
 	
-	Employee emp1 = (Employee)ref.getBean("employee");
-	System.out.println(emp1);
+	Employee e7 = (Employee)ref.getBean("emp3");
+	System.out.println(e7);   // it call toString methods 
+	
+	Employee e8 = (Employee)ref.getBean("emp4");
+	System.out.println(e8);   // it c
 	}
 
 }
