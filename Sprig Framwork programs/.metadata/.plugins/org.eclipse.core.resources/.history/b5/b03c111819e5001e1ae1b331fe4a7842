@@ -10,9 +10,5 @@ private float salary;
 	public void display() {
 		System.out.println("This is employee class method");
 	}
-	@Override
-	public String toString() {
-		return "Employee [id=" + id + ", name=" + name + ", salary=" + salary + "]";
-	}
 	
 }
