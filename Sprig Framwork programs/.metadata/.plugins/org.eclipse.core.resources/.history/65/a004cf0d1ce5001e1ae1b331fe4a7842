@@ -11,7 +11,7 @@
 
 <bean class="com.Employee" id="emp3"> 
 <constructor-arg value="100"></constructor-arg>
-<constructor-arg value="Steven"></constructor-arg>
+
 <constructor-arg value="24000"></constructor-arg>
 </bean>
 

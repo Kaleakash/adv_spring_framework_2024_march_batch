@@ -18,6 +18,7 @@
 <bean class="com.Employee" id="emp4">
 	<property name="id" value="101"></property>
 	
+	<property name="salary" value="26000"></property>
 	<property name="name" value="Lex"></property>
 </bean>
 

@@ -33,9 +33,6 @@ public class DemoTest {
 	
 	Employee e7 = (Employee)ref.getBean("emp3");
 	System.out.println(e7);   // it call toString methods 
-	
-	Employee e8 = (Employee)ref.getBean("emp4");
-	System.out.println(e8);   // it c
 	}
 
 }
