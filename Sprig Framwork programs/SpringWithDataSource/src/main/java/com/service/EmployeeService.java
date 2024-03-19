@@ -1,5 +1,8 @@
 package com.service;
 
+import java.util.Iterator;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,4 +25,32 @@ public class EmployeeService {
 		}
 	}
 	
+	public String deleteEmployee(int id) {
+		if(empoyeeDao.deleteEmployee(id)>0) {
+			return "Employee record deleted successfully";
+		}else {
+			return "Employee record not present";
+		}
+	}
+	
+	public String updateEmployee(Employee emp) {
+		if(empoyeeDao.updateEmployee(emp)>0) {
+			return "Employee record updated successfully";
+		}else {
+			return "Employee record not present";
+		}
+	}
+	
+	public List<Employee> findAllEmployee() {
+			List<Employee> listOfEmp = empoyeeDao.findAll();
+			Iterator<Employee> li = listOfEmp.iterator();
+			while(li.hasNext()) {
+				Employee emp = li.next();
+				emp.setSalary(emp.getSalary()+2500);
+			}
+			
+			return listOfEmp;
+	}
 }
+
+
