@@ -8,5 +8,6 @@
 </head>
 <body>
 <h2>Product Management System</h2>
+<a href="addProduct.jsp">Add Product</a> |
 </body>
 </html>

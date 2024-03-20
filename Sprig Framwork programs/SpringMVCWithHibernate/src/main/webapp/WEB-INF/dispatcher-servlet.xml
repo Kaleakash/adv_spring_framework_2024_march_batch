@@ -10,7 +10,7 @@
 
 <bean class="org.springframework.jdbc.datasource.DriverManagerDataSource" id="ds" scope="singleton">
 	<property name="driverClassName" value="com.mysql.cj.jdbc.Driver"></property>
-	<property name="url" value="jdbc:mysql://localhost:3306/test123"></property>
+	<property name="url" value="jdbc:mysql://localhost:3306/testdb123"></property>
 	<property name="username" value="root"></property>
 	<property name="password" value="root@123"></property>
 </bean>
