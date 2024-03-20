@@ -7,8 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h2>Spring MVC Application</h2>
-<a href="say">Click Here</a><br/>
-<a href="login.jsp">Login Page</a>
+<h2>Successfully login!</h2>
 </body>
 </html>
