@@ -36,17 +36,24 @@ public class ProductController {
 	}
 	
 	@RequestMapping(value = "/addProduct",method = RequestMethod.POST)
-	public String addProductDetails(Model model, Product product) {
-		String result = productService.storeProduct(product);
+	public String addProductDetails(Model model, Product product,HttpServletRequest req) {
+		String b1 = req.getParameter("b1");
+		String result="";
+		String name=""; 
+		if(b1.equals("Store Product")) {
+			result = productService.storeProduct(product);
+		}else {
+			result = productService.updateProduct(product);
+		}
+		name = "Store Product";
 		product.setPid(0);
 		product.setPname("");
 		product.setPrice(0);
 		model.addAttribute("product", product);
-		
-			List<Product> listOfProduct = productService.findAllProducts();
-			model.addAttribute("products", listOfProduct);
-		
-			model.addAttribute("msg", result);
+		List<Product> listOfProduct = productService.findAllProducts();
+		model.addAttribute("products", listOfProduct);
+		model.addAttribute("msg", result);
+		model.addAttribute("buttonValue", name);
 		return "index";
 	}
 	
