@@ -24,8 +24,12 @@ public class ProductController {
 	@RequestMapping(value = "/",method = RequestMethod.GET)
 	public String open(Model model, Product product) {
 	
-		List<Product> listOfProduct = productService.findAllProducts();
-		model.addAttribute("products", listOfProduct);
+	String name="Store Product"; 
+	
+	List<Product> listOfProduct = productService.findAllProducts();
+	model.addAttribute("products", listOfProduct);
+		
+		model.addAttribute("buttonValue", name);
 	
 	model.addAttribute("product", product);
 	return "index";
@@ -62,11 +66,13 @@ public class ProductController {
 	@RequestMapping(value = "/updateProduct",method = RequestMethod.GET)
 	public String searchProductById(Model model, HttpServletRequest req) {
 		int pid = Integer.parseInt(req.getParameter("pid"));
-		
+		String name="Update Product"; 
 		Product product = productService.searchProductById(pid);
 		List<Product> listOfProduct = productService.findAllProducts();
 		model.addAttribute("products", listOfProduct);
 		model.addAttribute("product", product);
+		model.addAttribute("buttonValue", name);
+		
 		//model.addAttribute("msg", result);
 		
 	return "index";

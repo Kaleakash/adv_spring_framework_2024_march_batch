@@ -16,7 +16,7 @@
 <input type="text" name="pname" th:field="*{pname}"/><br/>
 <label>Price</label>
 <input type="number" name="price" th:field="*{price}"/><br/>
-<input type="submit" value="Store Product"/>
+<input type="submit" th:value="${buttonValue}" name="b1"/>
 <input type="reset" value="reset"/>
 </form>
 <hr/>
