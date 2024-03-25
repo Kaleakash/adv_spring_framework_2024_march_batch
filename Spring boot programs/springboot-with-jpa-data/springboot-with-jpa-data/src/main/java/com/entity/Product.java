@@ -1,9 +1,13 @@
 package com.entity;
 
+import org.hibernate.annotations.Comment;
+import org.springframework.stereotype.Component;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 
 @Entity
+@Component
 public class Product {
 @Id
 private int pid;
