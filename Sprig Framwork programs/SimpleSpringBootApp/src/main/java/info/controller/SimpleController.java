@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class SimpleController {
 	
-	@RequestMapping(value = "/")
+	@RequestMapping(value = "/")			// by default Get 
 	public String openPage() {
 		System.out.println("I Cam Here");
 		// we can do initialization 
