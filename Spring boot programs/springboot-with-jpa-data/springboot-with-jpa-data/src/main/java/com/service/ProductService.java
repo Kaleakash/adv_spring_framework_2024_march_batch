@@ -41,6 +41,18 @@ public class ProductService {
 			return "Product record not present";
 		}
 		}
+	
+	public Product searchProductById(int pid) {
+		
+		Optional<Product> result=productRepository.findById(pid);
+		if(result.isPresent()) {
+			Product product = result.get();
+			return product;
+		}else {
+			return null;
+		}
+	}
+	
 }
 
 

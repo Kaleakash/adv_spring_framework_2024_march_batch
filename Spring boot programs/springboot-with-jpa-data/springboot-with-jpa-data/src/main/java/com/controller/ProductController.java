@@ -58,4 +58,17 @@ public class ProductController {
 		
 	return "index";
 	}
+	
+	@RequestMapping(value = "/updateProduct",method = RequestMethod.GET)
+	public String searchProductById(Model model, HttpServletRequest req) {
+		int pid = Integer.parseInt(req.getParameter("pid"));
+		
+		Product product = productService.searchProductById(pid);
+		List<Product> listOfProduct = productService.findAllProducts();
+		model.addAttribute("products", listOfProduct);
+		model.addAttribute("product", product);
+		//model.addAttribute("msg", result);
+		
+	return "index";
+	}
 }
