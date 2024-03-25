@@ -1,6 +1,7 @@
 package com.entity;
 
 import org.hibernate.annotations.Comment;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import jakarta.persistence.Entity;
@@ -8,6 +9,7 @@ import jakarta.persistence.Id;
 
 @Entity
 @Component
+@Scope("prototype")
 public class Product {
 @Id
 private int pid;
