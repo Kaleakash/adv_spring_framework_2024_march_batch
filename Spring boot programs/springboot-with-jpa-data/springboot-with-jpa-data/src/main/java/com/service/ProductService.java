@@ -30,6 +30,17 @@ public class ProductService {
 		return "Product record stored successfully";
 	}
 	}
+	
+	public String deleteProduct(int pid) {
+		
+		//Optional<Product> result=productRepository.findById(pid);
+		if(productRepository.existsById(pid)) {
+			productRepository.deleteById(pid);
+			return "Product deleted successfully";
+		}else {
+			return "Product record not present";
+		}
+		}
 }
 
 

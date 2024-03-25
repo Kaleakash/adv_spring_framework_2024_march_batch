@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.entity.Product;
 import com.service.ProductService;
 
+import jakarta.servlet.http.HttpServletRequest;
+
 
 
 @Controller
@@ -22,8 +24,8 @@ public class ProductController {
 	@RequestMapping(value = "/",method = RequestMethod.GET)
 	public String open(Model model, Product product) {
 	
-	List<Product> listOfProduct = productService.findAllProducts();
-	model.addAttribute("products", listOfProduct);
+		List<Product> listOfProduct = productService.findAllProducts();
+		model.addAttribute("products", listOfProduct);
 	
 	model.addAttribute("product", product);
 	return "index";
@@ -31,14 +33,29 @@ public class ProductController {
 	
 	@RequestMapping(value = "/addProduct",method = RequestMethod.POST)
 	public String addProductDetails(Model model, Product product) {
-		System.out.println("I came here");
 		String result = productService.storeProduct(product);
 		product.setPid(0);
 		product.setPname("");
 		product.setPrice(0);
 		model.addAttribute("product", product);
-		System.out.println(result);
-		model.addAttribute("msg", result);
+		
+			List<Product> listOfProduct = productService.findAllProducts();
+			model.addAttribute("products", listOfProduct);
+		
+			model.addAttribute("msg", result);
 		return "index";
+	}
+	
+	@RequestMapping(value = "/deleteProduct",method = RequestMethod.GET)
+	public String deleteProductById(Model model, Product product,HttpServletRequest req) {
+		int pid = Integer.parseInt(req.getParameter("pid"));
+		
+		String result = productService.deleteProduct(pid);
+		List<Product> listOfProduct = productService.findAllProducts();
+		model.addAttribute("products", listOfProduct);
+		model.addAttribute("product", product);
+		model.addAttribute("msg", result);
+		
+	return "index";
 	}
 }
