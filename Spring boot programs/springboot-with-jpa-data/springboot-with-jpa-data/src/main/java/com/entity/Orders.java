@@ -12,7 +12,7 @@ public class Orders {
 @Id
 @GeneratedValue(strategy = GenerationType.IDENTITY)		// pk with auto_increment 
 private int oid;
-private int pid;
+private Integer pid;				// FK can hold null value but int can't in java side 
 private LocalDateTime ldt;
 public int getOid() {
 	return oid;
@@ -20,10 +20,10 @@ public int getOid() {
 public void setOid(int oid) {
 	this.oid = oid;
 }
-public int getPid() {
+public Integer getPid() {
 	return pid;
 }
-public void setPid(int pid) {
+public void setPid(Integer pid) {
 	this.pid = pid;
 }
 public LocalDateTime getLdt() {
@@ -32,9 +32,6 @@ public LocalDateTime getLdt() {
 public void setLdt(LocalDateTime ldt) {
 	this.ldt = ldt;
 }
-@Override
-public String toString() {
-	return "Orders [oid=" + oid + ", pid=" + pid + ", ldt=" + ldt + "]";
-}
+
 
 }

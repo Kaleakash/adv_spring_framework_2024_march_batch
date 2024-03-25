@@ -8,7 +8,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.entity.Orders;
 import com.entity.Product;
+import com.service.OrdersService;
 import com.service.ProductService;
 
 import jakarta.servlet.http.HttpServletRequest;
@@ -20,6 +22,9 @@ public class ProductController {
 
 	@Autowired
 	ProductService productService;
+	
+	@Autowired
+	OrdersService ordersService;
 	
 	@RequestMapping(value = "/",method = RequestMethod.GET)
 	public String open(Model model, Product product) {
@@ -80,6 +85,23 @@ public class ProductController {
 		model.addAttribute("product", product);
 		model.addAttribute("buttonValue", name);
 		
+		//model.addAttribute("msg", result);
+		
+	return "index";
+	}
+	
+	
+	@RequestMapping(value = "/orderPlace",method = RequestMethod.GET)
+	public String placeOrder(Model model, HttpServletRequest req, Orders order,Product product) {
+		int pid = Integer.parseInt(req.getParameter("pid"));
+		order.setPid(pid);
+		String name="Store Product"; 
+		String result = ordersService.placeOrder(order);
+		List<Product> listOfProduct = productService.findAllProducts();
+		model.addAttribute("products", listOfProduct);
+		model.addAttribute("product", product);
+		model.addAttribute("msg", result);
+		model.addAttribute("buttonValue", name);
 		//model.addAttribute("msg", result);
 		
 	return "index";
