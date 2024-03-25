@@ -22,4 +22,14 @@ public class ProductController {
 		model.addAttribute("product", product);
 		return "index";
 	}
+	
+	@RequestMapping(value = "/addProduct",method = RequestMethod.POST)
+	public String addProductDetails(Model model, Product product) {
+		System.out.println("I came here");
+		String result = productService.storeProduct(product);
+		model.addAttribute("product", product);
+		System.out.println(result);
+		model.addAttribute("msg", result);
+		return "index";
+	}
 }
