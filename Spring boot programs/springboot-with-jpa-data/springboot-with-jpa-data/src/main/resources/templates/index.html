@@ -62,6 +62,22 @@
   
 </table>
 
+<hr/>
+<h4>Order Details</h4>
+<table border="1" class="table">
+  <tr>
+    <th>PName</th>
+    <th>Price</th>
+    <th>OrderId</th>
+    <th>OrderDateAndTime</th>
+  </tr>
+   <tr th:each="od:${orderdetails}">
+    <td th:text="${od[0]}"></td>
+    <td th:text="${od[1]}"></td>
+    <td th:text="${od[2]}"></td>
+    <td th:text="${od[3]}"></td>
+   </tr>
+</table>
 </body>
 </div>
 </html>

@@ -32,11 +32,14 @@ public class ProductController {
 	String name="Store Product"; 
 	
 	List<Product> listOfProduct = productService.findAllProducts();
-	model.addAttribute("products", listOfProduct);
-		
-		model.addAttribute("buttonValue", name);
+	List<Object[]> orderdetails = productService.orderDetails();
 	
+	model.addAttribute("products", listOfProduct);
+	model.addAttribute("buttonValue", name);
 	model.addAttribute("product", product);
+	model.addAttribute("orderdetails", orderdetails);
+	
+	System.out.println(listOfProduct);
 	return "index";
 	}
 	
@@ -56,6 +59,8 @@ public class ProductController {
 		product.setPrice(0);
 		model.addAttribute("product", product);
 		List<Product> listOfProduct = productService.findAllProducts();
+		List<Object[]> orderdetails = productService.orderDetails();
+		model.addAttribute("orderdetails", orderdetails);
 		model.addAttribute("products", listOfProduct);
 		model.addAttribute("msg", result);
 		model.addAttribute("buttonValue", name);
@@ -65,13 +70,16 @@ public class ProductController {
 	@RequestMapping(value = "/deleteProduct",method = RequestMethod.GET)
 	public String deleteProductById(Model model, Product product,HttpServletRequest req) {
 		int pid = Integer.parseInt(req.getParameter("pid"));
-		
+		System.out.println("pid is "+pid);
+		String name = "Store Product";
 		String result = productService.deleteProduct(pid);
 		List<Product> listOfProduct = productService.findAllProducts();
 		model.addAttribute("products", listOfProduct);
 		model.addAttribute("product", product);
 		model.addAttribute("msg", result);
-		
+		model.addAttribute("buttonValue", name);
+		List<Object[]> orderdetails = productService.orderDetails();
+		model.addAttribute("orderdetails", orderdetails);
 	return "index";
 	}
 	
@@ -84,7 +92,8 @@ public class ProductController {
 		model.addAttribute("products", listOfProduct);
 		model.addAttribute("product", product);
 		model.addAttribute("buttonValue", name);
-		
+		List<Object[]> orderdetails = productService.orderDetails();
+		model.addAttribute("orderdetails", orderdetails);
 		//model.addAttribute("msg", result);
 		
 	return "index";
@@ -103,7 +112,8 @@ public class ProductController {
 		model.addAttribute("msg", result);
 		model.addAttribute("buttonValue", name);
 		//model.addAttribute("msg", result);
-		
+		List<Object[]> orderdetails = productService.orderDetails();
+		model.addAttribute("orderdetails", orderdetails);
 	return "index";
 	}
 }

@@ -32,6 +32,10 @@ public LocalDateTime getLdt() {
 public void setLdt(LocalDateTime ldt) {
 	this.ldt = ldt;
 }
+@Override
+public String toString() {
+	return "Orders [oid=" + oid + ", pid=" + pid + ", ldt=" + ldt + "]";
+}
 
 
 }

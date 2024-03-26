@@ -33,9 +33,11 @@ public class ProductService {
 	
 	public String deleteProduct(int pid) {
 		
-		//Optional<Product> result=productRepository.findById(pid);
-		if(productRepository.existsById(pid)) {
-			productRepository.deleteById(pid);
+		System.out.println("product id is "+pid);
+		Optional<Product> result=productRepository.findById(pid);
+		if(result.isPresent()) {
+			Product p = result.get();
+			productRepository.delete(p);
 			return "Product deleted successfully";
 		}else {
 			return "Product record not present";
@@ -66,7 +68,15 @@ public class ProductService {
 			return "Product record not present";
 		}
 		}
+		
+		public List<Object[]> orderDetails() {
+			return productRepository.orderDetails();		// custom methods 
+		}
+		
+		
 }
+
+
 
 
 
