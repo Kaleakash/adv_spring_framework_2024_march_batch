@@ -16,7 +16,7 @@ public interface ProductRepository extends JpaRepository<Product, Integer>{
 	public 	List<Product> findProductByName(@Param("pname") String pname);
 	
 	
-	@Query("select p from Product p where p.price >= price")
+	@Query("select p from Product p where p.price >= :price")
 	public 	List<Product> findProductByPrice(@Param("price") float price);
 	
 	@Query("select p.pname,p.price,o.oid,o.ldt from Product p, Orders o where p.pid=o.pid")
