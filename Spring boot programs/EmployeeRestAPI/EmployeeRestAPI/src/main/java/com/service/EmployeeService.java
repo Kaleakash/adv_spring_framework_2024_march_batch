@@ -61,7 +61,7 @@ public class EmployeeService {
 		}
 	}
 	
-	public List<Employee> searchEmployeeById(float salary) {
+	public List<Employee> searchEmployeeBySalary(float salary) {
 			return employeeRepository.findEmployeeBySalary(salary);
 	}
 	

@@ -52,6 +52,22 @@ public class EmployeeController {
 		public String updateEmployeeSalary(@RequestBody Employee employee) {
 			return employeeService.updateEmployeeSalary(employee);
 		}
+		
+		// http://localhost:8080/searchEmployeeById/101	
+		
+		@RequestMapping(value = "searchEmployeeById/{id}",method = RequestMethod.GET)
+		public String searchEmployeeById(@PathVariable("id") int id) {
+			return employeeService.searchEmployeeById(id);
+		}
 	
-	
+		// http://localhost:8080/searchEmployeeBySalary/20000	
+		@RequestMapping(value = "searchEmployeeBySalary/{salary}",method = RequestMethod.GET)
+		public List<Employee> findEmployeeBySalary(@PathVariable("salary") float salary){
+			return employeeService.searchEmployeeBySalary(salary);
+		}
+		
+		
+		
+		
+		
 }
