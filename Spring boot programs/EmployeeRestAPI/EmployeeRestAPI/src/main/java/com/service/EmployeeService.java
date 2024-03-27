@@ -50,4 +50,21 @@ public class EmployeeService {
 			return "Employee record not present";
 		}
 	}
+	
+	public String searchEmployeeById(int id) {
+		Optional<Employee> result = employeeRepository.findById(id);
+		if(result.isPresent()) {
+			Employee emp = result.get();
+			return emp.toString();
+		}else {
+			return "Record not present";
+		}
+	}
+	
+	public List<Employee> searchEmployeeById(float salary) {
+			return employeeRepository.findEmployeeBySalary(salary);
+	}
+	
 }
+
+
