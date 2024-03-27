@@ -21,11 +21,33 @@ public class EmployeeService {
 	
 	public String storeEmployee(Employee emp) {
 		Optional<Employee> result = employeeRepository.findById(emp.getId());
-		if(result.isEmpty()) {
+		if(result.isPresent()) {
 			return "Employee id must be unique";
 		}else {
 			employeeRepository.save(emp);
 			return "Employee record saved sucessfully";
+		}
+	}
+	
+	public String deleteEmployee(int id) {
+		Optional<Employee> result = employeeRepository.findById(id);
+		if(result.isPresent()) {
+			employeeRepository.deleteById(id);
+			return "Employee record deleted successfully";
+		}else {
+			return "Employee record not present";
+		}
+	}
+	
+	public String updateEmployeeSalary(Employee emp) {
+		Optional<Employee> result = employeeRepository.findById(emp.getId());
+		if(result.isPresent()) {
+				Employee empdb = result.get();
+			empdb.setSalary(emp.getSalary());
+			employeeRepository.saveAndFlush(empdb);
+			return "Employee salary updated successfully";
+		}else {
+			return "Employee record not present";
 		}
 	}
 }
