@@ -22,7 +22,7 @@ public class AccountController {
 	@Autowired
 	AccountService accountService;
 	
-	@PostMapping(value = "reate",consumes = MediaType.APPLICATION_JSON_VALUE)
+	@PostMapping(value = "create",consumes = MediaType.APPLICATION_JSON_VALUE)
 	public String createAccount(@RequestBody Account account) {
 		return accountService.createAccount(account);
 	}
@@ -33,12 +33,19 @@ public class AccountController {
 	
 	@GetMapping(value="findAccNumber/{emailid}")
 	public int findAccnoNumber(@PathVariable("emailid") String emailid) {
+		try {
 		return accountService.findAccNumber(emailid);
+		}catch(Exception e) {
+			System.err.println(e);
+			return -1;
+		}
 	}
 	
-	@GetMapping(value="findAccount/{accno}")
-	public float findAccountBalance(@PathVariable("accno") int accno) {
+	@GetMapping(value="findBalance/{accno}")
+	public String findAccountBalance(@PathVariable("accno") int accno) {
+		
 		return accountService.findBalance(accno);
+		
 	}
 	
 }

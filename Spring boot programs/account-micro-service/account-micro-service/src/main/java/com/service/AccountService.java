@@ -37,8 +37,13 @@ public class AccountService {
 		return accountRepository.findAccountNumber(emailid);
 	}
 	
-	public float findBalance(int accno) {
-		return accountRepository.findBalance(accno);
+	public String findBalance(int accno) {
+		try {
+		return "Your account balance is "+accountRepository.findBalance(accno);
+		}catch(Exception e) {
+			System.err.println(e);
+			return "Invalid Account number";
+		}
 	}
 	
 	
