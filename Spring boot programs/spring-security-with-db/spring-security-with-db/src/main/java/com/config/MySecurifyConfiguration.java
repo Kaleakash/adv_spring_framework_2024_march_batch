@@ -25,10 +25,12 @@ public class MySecurifyConfiguration {
 	public SecurityFilterChain filterChain(HttpSecurity httpSecurity) throws Exception{
 		
 		return httpSecurity.
+				csrf(csrf->csrf.disable()).
 				authorizeHttpRequests(auth-> {
-					auth.requestMatchers("everyone").permitAll();
+					auth.requestMatchers("everyone","register").permitAll();
 					auth.requestMatchers("/user/**").hasAnyRole("USER");
 					auth.requestMatchers("/admin/**").hasAnyRole("ADMIN");
+					auth.anyRequest().authenticated();
 				}).
 				formLogin(form->form.permitAll()).
 				build();
