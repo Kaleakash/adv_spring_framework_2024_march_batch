@@ -1,5 +1,6 @@
 package com.service;
 
+import java.time.LocalDateTime;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,6 +39,7 @@ public class AccountService {
 	}
 	
 	public String findBalance(int accno) {
+		System.out.println("Client send request "+LocalDateTime.now());
 		try {
 		return "Your account balance is "+accountRepository.findBalance(accno);
 		}catch(Exception e) {

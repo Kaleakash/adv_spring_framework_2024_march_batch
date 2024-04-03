@@ -21,7 +21,8 @@ public class PaypalService {
 
 	public String createAccount(Paypal paypal) {
 		String emailid = paypal.getEmailid();
-		int accno = restTemplate.getForObject("http://localhost:9191/account/findAccNumber/"+emailid, Integer.class);
+		//int accno = restTemplate.getForObject("http://localhost:9191/account/findAccNumber/"+emailid, Integer.class);
+		int accno = restTemplate.getForObject("http://ACCOUNT-MICRO-SERVICE/account/findAccNumber/"+emailid, Integer.class);
 		paypal.setAccno(accno);
 		paypalRepository.save(paypal);
 		return "Account Created sucessfully";
@@ -35,7 +36,9 @@ public class PaypalService {
 		if(accno==-1) {
 			return "Your paypal account not link with any account";
 		}else {
-		String output = restTemplate.getForObject("http://localhost:9191/account/findBalance/"+accno, String.class);	
+			
+		//String output = restTemplate.getForObject("http://localhost:9191/account/findBalance/"+accno, String.class);	
+		String output = restTemplate.getForObject("http://ACCOUNT-MICRO-SERVICE/account/findBalance/"+accno, String.class);
 		return output;
 		}
 		}else {
