@@ -12,9 +12,9 @@ public class SpringBootReativeRestApiConsumerApplication {
 		SpringApplication.run(SpringBootReativeRestApiConsumerApplication.class, args);
 		System.out.println("product consumer rest api ");
 	}
-	@Bean
-	public WebClient.Builder webClient() {
-		return WebClient.builder();
-	}
+//	@Bean
+//	public WebClient.Builder webClient() {
+//		return WebClient.builder();
+//	}
 
 }
