@@ -27,5 +27,18 @@ public float getPrice() {
 public void setPrice(float price) {
 	this.price = price;
 }
+public Product() {
+	super();
+	// TODO Auto-generated constructor stub
+}
+public Product(int pid, String pname, float price) {
+	super();
+	this.pid = pid;
+	this.pname = pname;
+	this.price = price;
+}
+
+
+
 
 }
