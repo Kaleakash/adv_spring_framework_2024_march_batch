@@ -33,7 +33,10 @@ public class MySecurifyConfiguration {
 					auth.anyRequest().authenticated();
 				}).
 				//formLogin(form->form.permitAll()).		// it open pre-defined login page
-				formLogin(form->form.loginPage("/login").permitAll()). // it open custom login page 
+				formLogin(form->form.loginPage("/login").
+						//successForwardUrl("/success").
+						successHandler(new SuccessHandlerApp()).
+						permitAll()). // it open custom login page 
 				build();
 	}
 	
