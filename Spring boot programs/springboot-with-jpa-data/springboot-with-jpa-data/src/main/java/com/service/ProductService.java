@@ -23,12 +23,14 @@ public class ProductService {
 	public String storeProduct(Product product) {
 		
 	Optional<Product> result=productRepository.findById(product.getPid());
+	
 	if(result.isPresent()) {
 		return "Product id must be unique";
 	}else {
 		productRepository.save(product);
 		return "Product record stored successfully";
 	}
+	
 	}
 	
 	public String deleteProduct(int pid) {
