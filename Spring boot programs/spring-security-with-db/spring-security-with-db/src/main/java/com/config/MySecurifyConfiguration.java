@@ -34,7 +34,7 @@ public class MySecurifyConfiguration {
 				}).
 				//formLogin(form->form.permitAll()).		// it open pre-defined login page
 				formLogin(form->form.loginPage("/login").
-						//successForwardUrl("/success").
+						//successForwardUrl("/user").
 						successHandler(new SuccessHandlerApp()).
 						permitAll()). // it open custom login page 
 				build();

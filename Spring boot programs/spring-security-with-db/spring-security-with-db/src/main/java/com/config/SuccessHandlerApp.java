@@ -16,9 +16,9 @@ public class SuccessHandlerApp extends SavedRequestAwareAuthenticationSuccessHan
 			Authentication authentication) throws ServletException, IOException {
 		boolean isAdmin = authentication.getAuthorities().stream().anyMatch(grant->grant.getAuthority().equals("ROLE_ADMIN"));
 		if(isAdmin) {
-			setDefaultTargetUrl("admin");
+			setDefaultTargetUrl("/admin");
 		}else {
-			setDefaultTargetUrl("user");
+			setDefaultTargetUrl("/user");
 		}
 		super.onAuthenticationSuccess(request, response, authentication);
 	}
