@@ -7,15 +7,15 @@
 </head>
 <body>
 <h2>Create Account</h2>
-<form action="#" th:action="@{signup}" method="post" th:object="${login}">
+<form action="#" th:action="@{/signupindb}" method="post" th:object="${login}">
 	<label>Name</label>
 	<input type="text" name="username" th:field="*{username}"/><br/>
 	<label>Password</label>
 	<input type="password" name="password" th:field="*{password}"/><br/>
 	<label>Type of user</label>
 	<input type="radio" name="role" value="USER" th:field="*{role}"/>USER
-	<input type="radio" name="role" value="USER,ADMIN" th:field="*{role}"/>Admin<br/>
-	<input type="submit" value="signin"/>
+	<input type="radio" name="role" value="USER,ADMIN" th:field="*{role}"/>ADMIN<br/>
+	<input type="submit" value="signup"/>
 	<input type="reset" value="reset"/><br/>
 </form>
 <br/>

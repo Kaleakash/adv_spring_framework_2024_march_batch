@@ -27,7 +27,7 @@ public class MySecurifyConfiguration {
 		return httpSecurity.
 				csrf(csrf->csrf.disable()).
 				authorizeHttpRequests(auth-> {
-					auth.requestMatchers("everyone","register","signup").permitAll();
+					auth.requestMatchers("everyone","register","signup","signupindb").permitAll();
 					auth.requestMatchers("/user/**").hasAnyRole("USER");
 					auth.requestMatchers("/admin/**").hasAnyRole("ADMIN");
 					auth.anyRequest().authenticated();
