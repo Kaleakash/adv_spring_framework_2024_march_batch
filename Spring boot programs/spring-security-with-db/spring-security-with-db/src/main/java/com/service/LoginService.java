@@ -31,10 +31,10 @@ public class LoginService implements UserDetailsService{
 	}
 
 	public String[] getRoles(Login ll) {
-		if(ll.getRoles()==null) {
+		if(ll.getRole()==null) {
 			return new String[] {"USER"};
 		}else {
-			return ll.getRoles().split(",");
+			return ll.getRole().split(",");
 		}
 	}
 	

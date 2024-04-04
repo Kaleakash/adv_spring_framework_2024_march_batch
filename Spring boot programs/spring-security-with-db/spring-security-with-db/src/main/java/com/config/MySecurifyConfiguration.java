@@ -27,12 +27,13 @@ public class MySecurifyConfiguration {
 		return httpSecurity.
 				csrf(csrf->csrf.disable()).
 				authorizeHttpRequests(auth-> {
-					auth.requestMatchers("everyone","register").permitAll();
+					auth.requestMatchers("everyone","register","signup").permitAll();
 					auth.requestMatchers("/user/**").hasAnyRole("USER");
 					auth.requestMatchers("/admin/**").hasAnyRole("ADMIN");
 					auth.anyRequest().authenticated();
 				}).
-				formLogin(form->form.permitAll()).
+				//formLogin(form->form.permitAll()).		// it open pre-defined login page
+				formLogin(form->form.loginPage("/login").permitAll()). // it open custom login page 
 				build();
 	}
 	
